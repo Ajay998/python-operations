@@ -123,5 +123,54 @@ py manage.py shell
 
 ++++++++++++++++++++++++++++++++++
 
+DISPLAY DATA IN TEMPLATES
+
+all_members.html
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Members</h1>
+<ul>
+  {% for x in mymembers %}
+    <li>{{ x.firstname }} {{ x.lastname }}</li>
+  {% endfor %}
+</ul>
+</body>
+</html>
+
+views.py
+from django.http import HttpResponse
+from django.template import loader
+from .models import Member
+
+def members(request):
+  mymembers = Member.objects.all().values()
+  template = loader.get_template('all_members.html')
+  context = {
+    'mymembers': mymembers,
+  }
+  return HttpResponse(template.render(context, request))
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ADD LINK TO REDIRECT TO ANOTHER URL
+
+***************  mymember = Member.objects.get(id=id)  *****************************
+def details(request, id):
+  mymember = Member.objects.get(id=id)
+  template = loader.get_template('details.html')
+  context = {
+    'mymember': mymember,
+  }
+  return HttpResponse(template.render(context, request))
+
+Gets the id as an argument.
+Uses the id to locate the correct record in the Member table.
+
+URLS.PY
+path('members/details/<int:id>', views.details, name='details')
+
+ALL_MEMBERS.HTML
+<li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
 
 
