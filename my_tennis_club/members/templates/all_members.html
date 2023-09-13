@@ -1,20 +1,34 @@
-<!DOCTYPE html>
-<html>
-<body>
 
-<h1>Members</h1>
+<!--Master html extends-->
 
-<ul>
-  {% for x in mymembers %}
-    <li>{{ x.firstname }} {{ x.lastname }} {{x.phone}} {{x.joined_date}}</li>
-  {% endfor %}
-</ul>
+{% extends "master.html" %}
+{% block title %}
+  My Tennis Club - List of all members
+{% endblock %}
 
-<ul>
-  {% for x in mymembers %}
-    <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
-  {% endfor %}
-</ul>
+{% block content %}
+  <h1>Members</h1>
+  <ul>
+    {% for x in mymembers %}
+      <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
 
-</body>
-</html>
+<!--Main code-->
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<body>-->
+<!--<h1>Members</h1>-->
+<!--<ul>-->
+<!--  {% for x in mymembers %}-->
+<!--    <li>{{ x.firstname }} {{ x.lastname }} {{x.phone}} {{x.joined_date}}</li>-->
+<!--  {% endfor %}-->
+<!--</ul>-->
+<!--<ul>-->
+<!--  {% for x in mymembers %}-->
+<!--    <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>-->
+<!--  {% endfor %}-->
+<!--</ul>-->
+<!--</body>-->
+<!--</html>-->
