@@ -10,5 +10,11 @@
   {% endfor %}
 </ul>
 
+<ul>
+  {% for x in mymembers %}
+    <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
+  {% endfor %}
+</ul>
+
 </body>
 </html>
