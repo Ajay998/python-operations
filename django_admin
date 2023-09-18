@@ -1,0 +1,26 @@
+Django Admin is a really great tool in Django, it is actually a CRUD* user interface of all your models!
+
+127.0.0.1:8000/admin/
+
+python manage.py createsuperuser
+
+##########Add models to admin###################
+from django.contrib import admin
+from .models import Member
+# Register your models here.
+admin.site.register(Member)
+###########################################3
+
+###################In admin to change the member object to the name ################
+Add def __str__(self) to models
+
+def __str__(self):
+    return f"{self.firstname} {self.lastname}"
+
+###################################################################################
+
+########### To list first and lastname and joined date in seperate columns ################
+class MemberAdmin(admin.ModelAdmin):
+    list_display = ("firstname", "lastname", "joined_date",)
+admin.site.register(Member,MemberAdmin)
+#############################################################################################

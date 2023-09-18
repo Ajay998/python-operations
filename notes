@@ -173,4 +173,6 @@ path('members/details/<int:id>', views.details, name='details')
 ALL_MEMBERS.HTML
 <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
 
+******************************************************************************************************
+
 
