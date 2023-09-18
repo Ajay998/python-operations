@@ -1,0 +1,42 @@
+{% block userinfo %}
+  <h2>Not registered yet</h2>
+{% endblock %}
+
+The block tag  has two functions:
+It is a placeholder for content.
+It is content that will replace the placeholder.
+**************************************************************************
+{% comment %}
+  <h1>Greetings!</h2>
+{% endcomment %}
+
+The comment tag allows you to add comment sections that will be ignored by Django.
+**************************************************************************
+
+csrf_token	Protects forms from Cross Site Request Forgeries
+*******************************************************************************
+{% extends "mymaster.html" %}
+{% block heading %}
+  <h2>John Doe</h2>
+  <p>Explorer of life</p>
+{% endblock %}
+
+{% block cars %}
+  <li>Ford</li>
+  <li>Volvo</li>
+  <li>Audi</li>
+{% endblock %}
+
+extends	Specifies a parent template
+***************************************************************************
+The include tag allows you to include content from another template.
+
+<!DOCTYPE html>
+<html>
+<body>
+{% include mymenu.html %}
+<h1>Welcome</h1>
+<p>This is my webpage</p>
+</body>
+</html>
+****************************************************************************

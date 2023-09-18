@@ -13,7 +13,13 @@
       <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
     {% endfor %}
   </ul>
-{% endblock %}
+  {% if greetings == 1 %}
+    <h1>Welcome</h1>
+  {% else %}
+    <h1>Bye</h1>
+  {% endif %}
+
+  {% endblock %}
 
 <!--Main code-->
 <!--<!DOCTYPE html>-->

@@ -11,6 +11,7 @@ def members(request):
     template = loader.get_template('all_members.html')
     context = {
         'mymembers': mymembers,
+        'greetings': 1
     }
     return HttpResponse(template.render(context, request))
 
