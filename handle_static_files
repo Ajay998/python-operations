@@ -1,0 +1,3 @@
+settings.py
+STATIC_ROOT = BASE_DIR / 'static'
+python manage.py collectstatic

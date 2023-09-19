@@ -175,4 +175,10 @@ ALL_MEMBERS.HTML
 
 ******************************************************************************************************
 
+ADD STATIC FILES
+my_tennis_club/members/static/myfirst.css:
+
+HTML
+{% load static %}
+<link rel="stylesheet" href="{% static 'myfirst.css' %}">
 
