@@ -41,3 +41,19 @@ def details(request, id):
         'mymember': mymember,
     }
     return HttpResponse(template.render(context, request))
+
+def members_styling(request):
+    mymembers = Member.objects.all().values()
+    template = loader.get_template('all_members_styling.html')
+    context = {
+        'mymembers': mymembers,
+    }
+    return HttpResponse(template.render(context, request))
+def details_styling(request,id):
+    mymember = Member.objects.get(id=id)
+    print(mymember)
+    template = loader.get_template('details_styling.html')
+    context = {
+        'mymember': mymember,
+    }
+    return HttpResponse(template.render(context, request))
