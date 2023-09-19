@@ -13,13 +13,136 @@
       <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
     {% endfor %}
   </ul>
+
   {% if greetings == 1 %}
     <h1>Welcome</h1>
   {% else %}
     <h1>Bye</h1>
   {% endif %}
 
-  {% endblock %}
+  <h1>Get all first names</h1>
+  <p>{{ first_name }}</p>
+  <table border='1'>
+  {% for x in first_name %}
+    <tr>
+      <td>{{ x }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+
+  <h1>Filter the emil values</h1>
+  <table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in emil_data %}
+    <tr>
+      <td>{{ x.id }}</td>
+      <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+
+  <h1>Filter the emil and tobias values</h1>
+  <table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in emil_tobias_data %}
+    <tr>
+      <td>{{ x.id }}</td>
+      <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+
+  <h1>Filter data starts with A</h1>
+  <table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in data_starts_with_l %}
+    <tr>
+      <td>{{ x.id }}</td>
+      <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+
+  <h1>Filter data which contains text</h1>
+  <table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in mydata_contains %}
+    <tr>
+      <td>{{ x.id }}</td>
+      <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+
+  <h1>Order data by firstname in ascending order</h1>
+  <table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in all_data_order_by_asc %}
+    <tr>
+      <td>{{ x.id }}</td>
+      <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+
+   <h1>Order data by firstname in descending order</h1>
+  <table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in all_data_order_by_desc %}
+    <tr>
+      <td>{{ x.id }}</td>
+      <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+
+  <h1>Multiple order by</h1>
+  <table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in multiple_data_order_by %}
+    <tr>
+      <td>{{ x.id }}</td>
+      <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+
+{% endblock %}
 
 <!--Main code-->
 <!--<!DOCTYPE html>-->

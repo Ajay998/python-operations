@@ -1,0 +1,59 @@
+######## Get all values ################
+mymembers = Member.objects.all().values()
+
+############ Get values of first name ##############################
+first_name = Member.objects.all().values_list('firstname')
+#######################################################################
+
+############### Filter values by firstname #####################
+emil_data = Member.objects.filter(firstname='Emil').values()
+################################################################
+
+################### Filer values with OR condition #################3
+from django.db.models import Q
+emil_tobias_data = Member.objects.filter(Q(firstname='Emil') | Q(firstname='Tobias')).values()
+
+IN SQL: SELECT * FROM members WHERE firstname = 'Emil' OR firstname = 'Tobias';
+########################################################################
+
+####################### Filter first name starts with = l #########################
+data_starts_with_l = Member.objects.filter(firstname__startswith = "L").values()
+IN SQL: WHERE firstname LIKE 'L%'
+###################################################################################
+
+############################ fILTER DATA WHERE FIRST NAME CONTAINS BIAS ###############
+mydata = Member.objects.filter(firstname__contains='bias').values()
+IN SQL: WHERE firstname LIKE '%bias%';
+
+CASE SENSITIVE
+mydata = Member.objects.filter(lastname__icontains='ref').values()
+#######################################################################################
+
+FIRST NAME ENDS WITH S
+mydata = Member.objects.filter(firstname__endswith='s').values()
+mydata = Member.objects.filter(firstname__iendswith='s').values()
+
+FIRST NAME WITH EXACT EMIL
+mydata = Member.objects.filter(firstname__exact='Emil').values()
+mydata = Member.objects.filter(firstname__iexact='emil').values()
+
+GET FIRST NAME WITH VALUES  ['Tobias', 'Linus', 'John']
+mydata = Member.objects.filter(firstname__in=['Tobias', 'Linus', 'John']).values()
+
+
+mydata = Member.objects.filter(id__gt=3).values()
+Greater than equal to
+mydata = Member.objects.filter(id__gte=3).values()
+
+mydata = Member.objects.filter(id__lt=3).values()
+mydata = Member.objects.filter(id__lte=3).values()
+
+ID RANGE FROM 2 TO 4
+mydata = Member.objects.filter(id__range=(2, 4)).values()
+
+ASCENDING ORDER BY FIRSTNAME
+all_data_order_by_asc = Member.objects.order_by('firstname').values()
+DESCENDING ORDER BY FIRSTNAME
+all_data_order_by_desc = Member.objects.all().order_by('-firstname').values()
+ORDER BY MULTIPLE VALUES
+multiple_data_order_by = Member.objects.all().order_by('lastname', '-id').values()
