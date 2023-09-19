@@ -40,3 +40,14 @@ The include tag allows you to include content from another template.
 </body>
 </html>
 ****************************************************************************
+The now tag inserts the current date and/or time, according to the specified format.
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>{% now "Y-m-d" %}</h1>
+
+</body>
+</html>
