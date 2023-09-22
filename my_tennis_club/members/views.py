@@ -49,6 +49,7 @@ def members_styling(request):
         'mymembers': mymembers,
     }
     return HttpResponse(template.render(context, request))
+
 def details_styling(request,id):
     mymember = Member.objects.get(id=id)
     print(mymember)
@@ -57,3 +58,5 @@ def details_styling(request,id):
         'mymember': mymember,
     }
     return HttpResponse(template.render(context, request))
+
+#################### Function based views ###########################

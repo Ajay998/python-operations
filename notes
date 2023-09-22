@@ -24,6 +24,7 @@ pip install Django
 django-admin --version
 django-admin startproject my_tennis_club
 python manage.py startapp members
+After adding the above code, go to the settings.py file which is in the project directory, and change the value of ROOT_URLCONF from ‘project.urls’ to ‘app.urls’
 Create a file named urls.py in the same folder as the views.py file, and type this code in it:
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
     from django.urls import path
@@ -106,7 +107,7 @@ joined_date = models.DateField()
 python manage.py makemigrations members
 python manage.py migrate
 
-py manage.py shell
+python manage.py shell
 >>> from members.models import Member
 >>> x = Member.objects.all()[0]
 >>> x.phone = 5551234

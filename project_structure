@@ -1,0 +1,69 @@
+manage.py- This file is used to interact with your project via the command line(start the server, sync the database… etc).
+
+_init_.py – It is a python package. It is invoked when the package or a module in the package is imported.
+We usually use this to execute package initialization code, for example for the initialization of package-level data.
+
+settings.py – As the name indicates it contains all the website settings.
+In this file, we register any applications we create, the location of our static files, database configuration details, etc.
+
+urls.py – In this file, we store all links of the project and functions to call.
+
+wsgi.py – This file is used in deploying the project in WSGI. It is used to help your Django application communicate with the webserver.
+
+settings.py
+
+BASE_DIR
+BASE_DIR points to the top hierarchy of the project i.e. mysite, whatever paths we define in the project are all relative to BASE_DIR.
+To use BASE_DIR we will have to use os module provided by Python.
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+DEBUG
+In Development Error is very obvious to occur. There is no fun in writing a program where we do not face any error.
+but sometimes tackling errors is very hectic. Django provides an inbuilt Debugger which makes the developer’s life very easy. We can use it by doing:
+DEBUG = True  // It is Default value and is preferred in only Development Phase.
+In production, DEBUG = False is preferred.
+
+ALLOWED_HOSTS
+ALLOWED_HOSTS is a list having addresses of all domains which can run your Django Project.
+ALLOWED_HOSTS can be an empty list i.e. ALLOWED_HOSTS=[ ] because by Default it is 127.0.0.1 or localhost
+When DEBUG set to False
+ALLOWED_HOSTS can not be an empty list. We have to give hosts name in list. i.e. ALLOWED_HOSTS=[“127.0.0.1”, “*.heroku.com”].
+“127.0.0.1” represents Your PC, “*.heroku.com” represents this application can be run on heroku also.
+
+INSTALLED_APPS
+In this section, we mention all apps that will be used in our Django project.
+
+DATABASES
+Django officially supports the following databases:
+PostgreSQL
+MariaDB
+MySQL
+Oracle
+SQLite <– By Default
+
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': YOUR_DB_NAME,
+            'USER': USERNAME,
+            'PASSWORD': PASSWORD_FOR_DB,
+            'HOST': 'localhost'  // in Development.
+        }
+    }
+
+
+MEDIA_URL:
+MEDIA_URL is the relative path to BASE_DIR. This variable is used to store the media files.
+MEDIA_URL= '/media/'
+
+STATIC_URL:
+STATIC_URL is the relative path to BASE_DIR. This variable is used to store the static files.
+STATIC_URL = '/static/'
+
+MEDIA_ROOT:
+MEDIA_ROOT is an absolute path. This variable is used to retrieve the media files.
+MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+
+STATIC_ROOT:
+STATIC_ROOT is an absolute path. This variable is used to retrieve the static files.
+STATIC_ROOT= os.path.join(BASE_DIR, 'static')

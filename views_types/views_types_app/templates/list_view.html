@@ -1,0 +1,12 @@
+<div class="main">
+
+    {% for data in dataset %}
+    <a href="update/{{ data.id }}">{{ data.id }}</a><br/>
+    {{ data.title }}<br/>
+    {{ data.description }}<br/>
+    <a href="delete/{{ data.id }}">delete data</a><br/>
+    <hr/>
+    {% endfor %}
+    <a href="add/">Add Data</a>
+
+</div>
