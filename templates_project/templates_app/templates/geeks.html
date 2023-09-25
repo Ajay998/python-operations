@@ -1,0 +1,43 @@
+
+{% extends "main.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>Welcome to Geeksforgeeks.</h1>
+<p> Data  is {{  context.data }}</p>
+    <h4>List is </h4>
+    <ul>
+    {% for i in context.list %}
+    <li>{{ i }}</li>
+    {% endfor %}
+    </ul>
+
+<h1>Accessing variables</h1>
+My First Name is {{ context2.first_name }}.
+<br/>
+My Last Name is  {{ context2.last_name }}.
+</body>
+
+<h2>If else</h2>
+{% if context3.data1 < 100 %}
+Value in data is : - {{ context3.data1 }}
+{% else %}
+Data is greater than 100
+{% endif%}
+<br/>
+{% if context3.data2 < 100 %}
+Value in data is : - {{ context3.data2 }}
+{% else %}
+Data is greater than 100
+{% endif%}
+
+
+</html>
+{% endblock %}

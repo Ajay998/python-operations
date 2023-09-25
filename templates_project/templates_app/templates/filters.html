@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filters</title>
+</head>
+<body>
+<h2>Add</h2>
+{{ context.data | add:"2" }}
+<h3>Remove values of args</h3>
+{{ context.data2 | cut:" " }}
+<h3>Date formating</h3>
+<p>{{ context.data3 | date:'D, d M, Y' }}</p>
+<h4>Joining</h4>
+{{ context.data4 | join:" // " }}
+</body>
+<h4>First and last</h4>
+{{ context.data4  | first }}
+<br>
+{{ context.data4  | last }}
+<h4>Lenght</h4>
+{{ context.data4 | length }}
+<h4>Upper and lower</h4>
+{{ context.data2 | upper }}
+<br>
+{{ context.data2 | lower }}
+<h4>Make list</h4>
+{{ context.data2 | make_list }}
+<h4>Random</h4>
+{{ context.data4 | random }}
+<h4>Slice</h4>
+{{ context.data4 | slice:":2" }} ## 2 wont include while slicing
+<h3>Time formating</h3>
+{{ context.data5 | time:"H:i" }}
+<h2>Word count</h2>
+{{ context.data2  | wordcount }}
+</html>
