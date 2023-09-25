@@ -1,3 +1,3 @@
-# python-operations
+# django study
 Python Works
-1) Json works
+1) django study
