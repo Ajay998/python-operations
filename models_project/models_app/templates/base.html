@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Models data</title>
+</head>
+<body>
+<h1>Musicians</h1>
+
+{% for data in datas %}
+<ul>
+    <li>Firstname: {{ data.first_name }}</li>
+    <li>Lastname: {{ data.last_name }}</li>
+    <li>Instrument: {{ data.instrument }}</li>
+</ul>
+{% endfor %}
+</body>
+</html>
