@@ -1,0 +1,6 @@
+The session is a semi-permanent and two-way communication between the server and the browser.
+
+Let’s understand this technical definition in detail. Here semi means that session will exist until the user logs out or closes the browser.
+The two-way communication means that every time the browser/client makes a request, the server receives the request and cookies containing specific parameters
+and a unique Session ID which the server generates to identify the user.
+The Session ID doesn’t change for a particular session, but the website generates it every time a new session starts.

@@ -1,0 +1,32 @@
+Cookies, technically called HTTP Cookies are small text files which are created and maintained by your browser on the particular request of Web-Server.
+They are stored locally by your browser, and most browser will also show you the cookies generated in the Privacy and Security settings of the browser.
+
+How do Cookies work?
+Cookies work like other HTTP requests over the Internet. In a typical web-system, the browser makes a request to the server.
+The server then sends the response along with some cookies, which may contain some login information or some other data.
+
+Creating Cookies in Django
+Django bypasses lots of work which otherwise would be required when working on cookies. Django has methods like set_cookie() which we can use to create cookies very easily.
+The set_cookie() has these attributes:
+    name: It specifies the name of cookie.
+    value: It specifies the text or variable you want to store in the cookie.
+    max_age: It is the time period of cookie in seconds. After the time period completes, it will expire. It is an optional parameter; if not present then the cookie will exist till the time browser close.
+
+Cookies pass to the particular website every time the client makes a request. Therefore, server every time receives a cookie alongside the request. Django makes it very easy for us to retrieve data from a cookie.
+
+1. Using request.COOKIES[]
+Django’s request object has an attribute COOKIES, like COOKIES array in PHP.
+COOKIES is a special attribute of request, and its value is the name of the cookie from which you want to read data. Since there can be multiple cookies, you can change this value many times according to the type of cookie you want to store.
+Here is how you can use the same.
+We will use basic syntax to access a class parameter as:
+request.COOKIES[‘cookie_name’]
+
+def showcookie(request):
+    show = request.COOKIES['dataflair']
+    html = "<center> New Page <br>{0}</center>".format(show)
+    return HttpResponse(html)
+
+ html.set_cookie('dataflair', 'Welcome Back')
+ request.COOKIES.get('visits')
+ request.COOKIES.get('dataflair')
+ response.delete_cookie("visits")
