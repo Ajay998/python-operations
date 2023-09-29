@@ -1,0 +1,27 @@
+django.core.exceptions Package
+This package provides us with low-level exceptions. It enables us to define new rules for our Django project. We can load models, views in our own defined ways.
+
+This module has use-cases like:
+
+When you are working on a custom middleware.
+When making some changes to Django ORM.
+
+AppRegistryNotReady
+This error occurs when the application model is imported before the app-loading process.
+When we start our Django server, it first looks for settings.py file.
+Django then installs all the applications in the list INSTALLED_APPS. Here, is a part of that process.
+
+1.2. ObjectDoesNotExist
+This exception occurs when we request an object which does not exist. It is the base class for all the DoesNotExist Errors.
+
+1.3. EmptyResultSet
+This error is rare in Django. When we generate a query for objects and if the query doesn’t return any results, it raises this error.
+
+1.4. FieldDoesNotExist
+This one is clear from its name. When a requested field does not exist in a model, this meta.get_field() method raises this exception.
+
+1.7. PermissionDenied
+This exception is the clearest of all. You must have dealt with this exception while working on static files. Django raises this error when we store our static files in a directory which is not accessible.
+
+1.8. ViewDoesNotExist
+We all have experienced this one. Websites have a very evolving frontend design and there are frequent modifications which can lead to some faulty urls.
