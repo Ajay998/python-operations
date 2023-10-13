@@ -1,0 +1,1 @@
+# Big O is a characterization of algorithms according to their worst-case growth rates
