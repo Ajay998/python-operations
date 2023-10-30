@@ -14,9 +14,12 @@ from django.core.mail import EmailMessage
 from .tokens import account_activation_token
 # Create your views here.
 
+############### Class based views ##############
+
+
 
 def home(request):
-    return render(request,"index.html")
+    return render(request,"home.html")
 
 def signup(request):
     if request.method == "POST":
@@ -29,21 +32,23 @@ def signup(request):
 
         if User.objects.filter(username=username):
             messages.error(request,"Username already exist. Please try another")
-            return redirect('home')
+            return redirect('signup')
         #
         # if User.objects.filter(email=email):
         #     messages.error(request,"Email already exist. Please try another")
-        #     return redirect('home')
+        #     return redirect('signup')
 
         if len(username)>10:
             messages.error(request,"Username must be under 10 characters")
+            return redirect('signup')
 
         if pass1!=pass2:
             messages.error(request,"Password didnt match")
+            return redirect('signup')
 
         if not username.isalnum():
             messages.error(request,"Username must be alphanumeric")
-            return redirect('home')
+            return redirect('signup')
 
 
         myuser = User.objects.create_user(username,email,pass1)
@@ -76,7 +81,7 @@ def signup(request):
             messages.error(request,
                            f'Problem sending confirmation email to {to_list}, check if you typed it correctly.')
 
-        return redirect('signin')
+        return redirect('signup')
     return render(request, "signup.html")
 def signin(request):
     if request.method == 'POST':
@@ -91,7 +96,7 @@ def signin(request):
             return render(request,'index.html',{'fname':fname})
         else:
             messages.error(request,"Wrong Credentials")
-            return redirect('home')
+            return redirect('signin')
 
     return render(request,"signin.html")
 
@@ -110,9 +115,16 @@ def activate(request, uidb64, token):
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
+        login(request,user)
+        # return redirect('home')
         messages.success(request, 'Thank you for your email confirmation. Now you can login your account.')
-        return redirect('login')
+        return redirect('signin')
     else:
         messages.error(request, 'Activation link is invalid!')
 
     return redirect('homepage')
+
+def password_change(request):
+    user = request.user
+    form = SetPasswordForm(user)
+    return render(request, 'password_reset_confirm.html', {'form': form})
