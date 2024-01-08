@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <ul>
+        {% for song in songs %}
+            <li>
+                {{ song.name }} by {{ song.artist }}
+                <a href="{{ song.uri }}" target="_blank">Listen on Spotify</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

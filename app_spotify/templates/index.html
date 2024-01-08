@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song and Artist Search</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background: rgb(19,19,20);
+            background: linear-gradient(0deg, rgba(19,19,20,1) 15%, rgba(25,25,27,0.865983893557423) 100%);
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+        .search-container{
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .header{
+            background: rgba(40, 40, 38, 0.51);
+            border-radius: 10px;
+            padding: 13px 19px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 40px;
+
+        }
+        .logo{
+            text-align: center;
+        }
+        .logo p{
+            font-size: 12px;
+            line-height: 1.2;
+            color: #fff;
+            margin: 0;
+        }
+        .client{
+            text-align: right;
+        }
+        .client h4{
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 0.3;
+            color: #fff;
+            margin: 0;
+        }
+        .client p{
+            font-size: 16px;
+            line-height: 1.2;
+            color: #fff;
+            margin: 10px 0 0 0;
+        }
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 30px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+
+        .search-form {
+            display: none;
+        }
+
+        .search-form.active {
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type="submit"] {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <section class="main-section">
+        <div class="search-container">
+            <div class="header">
+                <div class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-spotify" viewBox="0 0 16 16" id="IconChangeColor">
+                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z" id="mainIconPathAttribute" fill="green" stroke-width="0" stroke="#ff0000"></path>
+                    </svg>
+                    <p>Spotify</p>
+                </div>
+                <div class="client">
+                    <h4>{{user_src}}</h4>
+                    <p id="gateway">Limit: {{limit}}</p>
+
+                </div>
+            </div>
+
+            <button class="search-button" id="search-song">Search by Song Name</button>
+            <button class="search-button" id="search-artist">Search by Artist Name</button>
+
+            <form class="search-form" id="search-playlist" action="/search_tracks" method="GET">
+                <input type="text" name="search_tracks" placeholder="Enter song name">
+                <input type="submit" name="submit-song" value="Search and Play">
+            </form>
+            <form class="search-form" id="search-singer" action="/search_artist" method="GET">
+                <input type="text" name="search_artist" placeholder="Enter artist name">
+                <input type="submit" name="submit-artist" value="Search and Play">
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("search-song").addEventListener("click", function() {
+            document.getElementById("search-playlist").classList.add("active");
+            document.getElementById("search-singer").classList.add("active");
+            document.querySelector('input[name="search_tracks"]').style.display = "block";
+            document.querySelector('input[name="search_artist"]').style.display = "none";
+            document.querySelector('input[name="submit-artist"]').style.display = "none";
+            document.querySelector('input[name="submit-song"]').style.display = "block";
+        });
+
+        document.getElementById("search-artist").addEventListener("click", function() {
+            document.getElementById("search-playlist").classList.add("active");
+            document.getElementById("search-singer").classList.add("active");
+            document.querySelector('input[name="search_tracks"]').style.display = "none";
+            document.querySelector('input[name="search_artist"]').style.display = "block";
+            document.querySelector('input[name="submit-song"]').style.display = "none";
+            document.querySelector('input[name="submit-artist"]').style.display = "block";
+        });
+    </script>
+</body>
+</html>

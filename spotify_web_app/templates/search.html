@@ -1,0 +1,13 @@
+<h1>Search for a Song</h1>
+<form method="POST" action="/search">
+    <input type="text" name="query" placeholder="Search for a song">
+    <input type="submit" value="Search">
+</form>
+<ul>
+    {% for track in tracks %}
+        <li>
+            {{ track.name }} by {{ track.artist }}
+            <a href="{{ url_for('play', track_uri=track.uri) }}">Play</a>
+        </li>
+    {% endfor %}
+</ul>

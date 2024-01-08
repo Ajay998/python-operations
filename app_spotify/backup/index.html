@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify Song Search and Play</title>
+</head>
+<body>
+    <h1>Spotify Song Search and Play</h1>
+    <p>{{ count }}</p>
+    <form action="/search_tracks" method="GET">
+        <input type="text" name="search_tracks" placeholder="Enter a song title">
+        <input type="submit" value="Search and Play">
+    </form>
+    <form action="/search_artist" method="GET">
+        <input type="text" name="search_artist" placeholder="Enter a artist name">
+        <input type="submit" value="Search and Play">
+    </form>
+</body>
+</html>

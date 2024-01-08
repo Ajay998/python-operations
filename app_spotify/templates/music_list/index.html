@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top Songs Spotify</title>
+    <style>
+        body{
+            background-color: #0f0f1b;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: normal;
+            color: #fff;
+            min-height: 1000px;
+            letter-spacing: .6px;
+        }
+        .container{
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+        header{
+            text-align: center;
+        }
+        header h1{
+            font-size: 30px;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+        header h3{
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+       .body_content{
+            margin-top: 30px;
+       }
+       .body_content .title{
+            background: #414072;
+            color: #fff;
+            padding: 20px 5px;
+            border-radius: 10px;
+            display: flex;
+       }
+       .body_content .title span{
+            font-size: 15px;
+       }
+       .body_content .title span:nth-child(1)
+       {
+            width: 60%;
+       }
+       .body_content .title span:nth-child(2){
+            width: 40%;
+       }
+       .body_content .title span:nth-child(3){
+            width: 20%;
+       }
+       .body_content .list{
+            position: relative;
+            padding: 15px 5px;
+            background: #000;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+       }
+       .body_content .list span{
+            font-size: 15px;
+
+       }
+       .body_content .list span:nth-child(1){
+               width: 60%;
+       }
+       .body_content .list span:nth-child(2){
+               width: 40%;
+       }
+       .body_content .list span:nth-child(3){
+               width: 20%;
+       }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <header>
+            <h1>TOP PICKED SPOTIFY SONGS</h1>
+            <h3>Welcome User</h3>
+        </header>
+        <div class="body_content">
+            <div class="title">
+                <span>TITLE</span>
+                <span>ARTIST</span>
+                <span>PLAY</span>
+            </div>
+            {% for song in songs %}
+            <div class="list">
+                    <span>{{ song.name }}</span>
+                    <span>{{ song.artist }}</span>
+                    <a href="{{ url_for('play', track_uri=song.uri,  page=song.name)}}">Listen on Spotify</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

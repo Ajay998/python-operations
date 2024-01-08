@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song and Artist Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .search-form {
+            display: none;
+        }
+
+        .search-form.active {
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="main-section">
+        <div class="search-container">
+            <button class="search-button" id="search-song">Search by Song Name</button>
+            <button class="search-button" id="search-artist">Search by Artist Name</button>
+
+            <form class="search-form" id="search-form" action="#" method="get">
+                <input type="text" name="song" placeholder="Enter song name">
+                <input type="text" name="artist" placeholder="Enter artist name">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("search-song").addEventListener("click", function() {
+            document.getElementById("search-form").classList.add("active");
+            document.querySelector('input[name="song"]').style.display = "block";
+            document.querySelector('input[name="artist"]').style.display = "none";
+        });
+
+        document.getElementById("search-artist").addEventListener("click", function() {
+            document.getElementById("search-form").classList.add("active");
+            document.querySelector('input[name="song"]').style.display = "none";
+            document.querySelector('input[name="artist"]').style.display = "block";
+        });
+    </script>
+</body>
+</html>

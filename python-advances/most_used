@@ -1,0 +1,152 @@
+Python Literals can be defined as data that is given in a variable or constant.
+1. String literals: Eg: "Aman" , '12345'
+
+II. Numeric literals:
+x = 0b10100 #Binary Literals
+y = 100 #Decimal Literal
+
+III. Boolean literals:
+x = (1 == True)
+y = (2 == False)
+
+IV. Special literals.
+val1=10
+val2=None
+print(val1)
+print(val2)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Python Operators
+Arithmetic operators
+Comparison operators
+Assignment Operators
+Logical Operators
+Bitwise Operators
+Membership Operators
+Identity Operators
+Arithmetic Operators
+********************************************************
+Python continue Statement:
+
+Python continue keyword is used to skip the remaining statements of the current loop and go to the next iteration.
+
+for iterator in range(10, 21):
+    # If iterator is equals to 15, loop will continue to the next iteration
+    if iterator == 15:
+        continue
+    # otherwise printing the value of iterator
+    print( iterator )
+Output:
+10
+11
+12
+13
+14
+16
+17
+18
+19
+20
+*************************************************************
+Python Pass Statement
+The pass statement is also known as the null statement.
+
+sequence = {"Python", "Pass", "Statement", "Placeholder"}
+for value in sequence:
+    if value == "Pass":
+        pass # leaving an empty if block using the pass keyword
+    else:
+        print("Not reached pass keyword: ", value)
+
+Output:
+Not reached pass keyword:  Python
+Not reached pass keyword:  Placeholder
+Not reached pass keyword:  Statement
+***************************************************************
+String:
+
+# Using Curly braces
+print("{} and {} both are the best friend".format("Devansh","Abhishek"))
+#Positional Argument
+print("{1} and {0} best players ".format("Virat","Rohit"))
+#Keyword Argument
+print("{a},{b},{c}".format(a = "James", b = "Peter", c = "Ricky"))
+
+****************
+
+Integer = 10;
+Float = 1.290
+String = "Devansh"
+print("Hi I am Integer ... My value is %d\nHi I am float ... My value is %f\nHi I am string ... My value is %s"%(Integer,Float,String))
+
+****************
+
+str = "ab bc ca de ed ad da ab bc ca"
+oc = str.count('a', 3)
+# Displaying result
+print("occurences:", oc)  === O/p: 5
+oc = str.count('a', 3, 8)  === O/p: 1
+
+****************
+
+str = "Hello this is javatpoint."
+isends = str.endswith("is",0,13)
+# Displaying result
+print(isends) === O/p: True
+
+*******************************
+
+string.find(substring, start, end)
+
+string = "Hello, world!"
+substring = "l"
+start = 3
+end = 8
+index = string.find(substring, start, end)
+print(index)  === O/p: 3
+
+********************************
+
+index(sub[, start[, end]])
+
+str = "Welcome to the Javatpoint."
+# Calling function
+str2 = str.index("p",19,21)
+# Displaying result
+print("p is present at :",str2,"index")   === O/p: 20 index
+
+**********************************
+
+String.join(iterable)
+
+lis = ['Hello', 'World', 'Python', 'Programming']
+r = ' '.join(lis)
+print(r)  === O/p: Hello World Python Programming
+
+******************************************
+
+replace(old, new[, count])
+
+str = "Java is a programming language"
+str2 = str.replace("Java","C")
+print("The new String after performing the replace method is:  \n",str2)  == O/p: C is a programming language
+
+*******************************************
+
+split(sep=None, maxsplit=-1)
+
+string = "Hello World"
+result = string.split()
+print(result)  == O/p: ['Hello', 'World']
+
+str = "Java is a programming language"
+str2 = str.split('a',1)
+print(str2) == O/p: ['J', 'va is a programming language']
+
+*******************************************
+
+splitlines() it breaks the string at line boundaries and returns a list of splitted strings.
+str = "Java \n is a programming \r language for \r\n  software development"
+str2 = str.splitlines()
+print(str2) == O/p: ['Java ', ' is a programming ', ' language for ', '  software development']
+
+ **************************************************

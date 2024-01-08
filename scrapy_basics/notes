@@ -1,0 +1,57 @@
+scrapy.cfg                - Deploy the configuration file
+project_name/             - Name of the project
+   _init_.py
+   items.py               - It is project's items file
+   pipelines.py           - It is project's pipelines file
+   settings.py            - It is project's settings file
+   spiders                - It is the spiders directory
+      _init_.py
+      spider_name.py
+      . . .
+
+The scrapy.cfg file is a project root directory, which includes the project name with the project settings.
+[settings]
+default = [name of the project].settings
+
+[deploy]
+#url = http://localhost:6800/
+project = [name of the project]
+
+Spider is a class responsible for defining how to follow the links through a website and extract the information from the pages.
+
+Field & Description
+name: It is the name of your spider.
+start_urls: It is a list of URLs, which will be the roots for later crawls, where the spider will begin to crawl from.
+allowed_domains: It is a list of domains on which the spider crawls
+
+Generic Spiders: You can use generic spiders to subclass your spiders from. Their aim is to follow all links on the website based on certain rules to extract data from all pages.
+CrawlSpider: CrawlSpider defines a set of rules to follow the links and scrap more than one page. It has the following class −
+XMLFeedSpider: It is the base class for spiders that scrape from XML feeds and iterates over nodes.
+CSVFeedSpider: It iterates through each of its rows, receives a CSV file as a response, and calls parse_row() method.
+SitemapSpider: SitemapSpider with the help of Sitemaps crawl a website by locating the URLs from robots.txt.
+
+Scrapy - Selectors
+When you are scraping the web pages, you need to extract a certain part of the HTML source by using the mechanism called selectors, achieved by using either XPath or CSS expressions.
+
+from scrapy.selector import Selector
+from scrapy.http import HtmlResponse
+Selector(text = body).xpath('//span/text()').extract() ############ [u'Hello world!!!']
+
+Selectors Using Regular Expressions
+response.xpath('//a[contains(@href, "image")]/text()').re(r'Name:\s*(.*)')
+
+Nesting Selectors
+links = response.xpath('//a[contains(@href, "image")]')
+for index, link in enumerate(links):
+   args = (index, link.xpath('@href').extract(), link.xpath('img/@src').extract())
+   print 'The link %d pointing to url %s and image %s' % args
+
+Scrapy - Items
+Scrapy process can be used to extract the data from sources such as web pages using the spiders. Scrapy uses Item class to produce the output whose objects are used to gather the scraped data.
+import scrapy
+class MyProducts(scrapy.Item):
+   productName = Field()
+   productLink = Field()
+   imageURL = Field()
+   price = Field()
+   size = Field()
