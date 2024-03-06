@@ -1,0 +1,107 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <script src="https://kit.fontawesome.com/e7082023f3.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Music Player</title>
+</head>
+<body>
+<div class="mainconatiner">
+    <div class="left">
+        <div class="home">
+            <a href=" "><button class="homebtn"><i class="fa-solid fa-house"></i><span> Home</span></button></a>
+            <button class="search"><i class="fa-solid fa-magnifying-glass"></i><span> Search</span></button>
+        </div>
+        <div class="playlist">
+            <div class="playlistheading">
+                <div class="leftheading">
+                    <button class="collapse"><i class="fa-solid fa-square-minus"></i><span> Playlist</span></button>
+                </div>
+                <div class="rightheading">
+                    <button class="addplaylist"><i class="fa-solid fa-plus"></i></button>
+                    <button class="maximize"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="playlistcontainer">
+                <span>Create your first playlist</span>
+                <button class="createplaylist">Create Playlist</button>
+                <ul>
+                    {% for playlist in user_playlists|slice:":4" %}
+                        <li class="playlists" data-slug="{{ playlist.slug }}">
+                            <img src="{{ playlist.photo }}"> {{ playlist.name }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="navbar">
+            <div class="backnext">
+                <i class="fa-solid fa-circle-chevron-left" id="#back-button"></i>
+                <i class="fa-solid fa-circle-chevron-right" id="#next-button"></i>
+            </div>
+            <div class="navend">
+                <button class="uploadBtn"><i class="fa-solid fa-upload"></i><span> Upload</span></button>
+                <button class="signlogin"><i class="fa-regular fa-user"></i></button>
+                <div class="signloginmenu">
+                    <ul>
+                        <li><i class="fa-solid fa-user-plus"></i> Register</li>
+                        <li><i class="fa-solid fa-right-to-bracket"></i> Login</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content" id="dynamic-content">
+            <span class="contentheading">Music</span>
+            <div class="musiclist">
+                {% for song in song_list %}
+                    <div class="musicitem">
+                        <img src="{{ song.photo }}">
+                        <span class="musicname">{{ song.name }}</span>
+                        <span class="artistname">{{ song.artist }}</span>
+                        <i class="fa-solid fa-circle-play play-button"></i>
+                        <audio id="audioPlayer">
+                            <source class="currentmusic" src="media/{{ song.file }}" type="audio/mp3">
+                        </audio>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="musiccontent">
+            <img class="playerimg" src="https://upload.wikimedia.org/wikipedia/en/b/b0/Glass_Animals_-_Heat_Waves.png">
+            <div class="musicdetails">
+                <span class="musicname" id="currentMusicName">Music Name</span>
+                <span class="artist" id="currentArtist">Artist Name</span>
+            </div>
+        </div>
+        <div class="songplayer">
+            <div class="playercontroller">
+                <i class="fa-solid fa-backward" id="backward"></i>
+                <i class="fa-solid fa-backward-step" id="lastmusic"></i>
+                <i class="fa-solid fa-circle-play play-button" id="playPause"></i>
+                <i class="fa-solid fa-forward-step" id="nextmusic"></i>
+                <i class="fa-solid fa-forward" id="forward"></i>
+            </div>
+            <div class="player">
+                <span class="starttimespan">0:00</span><input class="songbar" id="progressbar" type="range" min="0" max="100" value="0"><span class="endtimespan">0:00</span>
+            </div>
+            </audio>
+        </div>
+        <div class="volumecontrols">
+            <i class="fa-solid fa-volume-high"></i>
+            <input class="volumebar" id="volume" type="range" min="0" max="100" value="100">
+        </div>
+    </div>
+</div>
+<script>var csrf_token = '{{ csrf_token }}';</script>
+<script type="module" src="{% static 'main/js/main.js' %}"></script>
+    
+</body>
+</html>

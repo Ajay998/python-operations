@@ -1,0 +1,34 @@
+<div class="right"> 
+    <div class="navbar">
+        <div class="backnext">
+            <i class="fa-solid fa-circle-chevron-left" id="#back-button"></i>
+            <i class="fa-solid fa-circle-chevron-right" id="#next-button"></i>
+        </div>
+        <div class="navend">
+            <button class="uploadBtn"><i class="fa-solid fa-upload"></i><span> Upload</span></button>
+            <button class="signlogin"><i class="fa-regular fa-user"></i></button>
+            <div class="signloginmenu">
+                <ul>
+                    <li><i class="fa-solid fa-user-plus"></i> Register</li>
+                    <li><i class="fa-solid fa-right-to-bracket"></i> Login</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content" id="dynamic-content">
+        <span class="contentheading">Music</span>
+        <div class="musiclist">
+            {% for song in song_list %}
+                <div class="musicitem">
+                    <img src="{{ song.photo }}">
+                    <span class="musicname">{{ song.name }}</span>
+                    <span class="artistname">{{ song.artist }}</span>
+                    <i class="fa-solid fa-circle-play play-button"></i>
+                    <audio id="audioPlayer">
+                        <source class="currentmusic" src="media/{{ song.file }}" type="audio/mp3">
+                    </audio>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

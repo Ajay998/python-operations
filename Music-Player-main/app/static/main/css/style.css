@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+@import url("left.css");
+@import url("right.css");
+@import url("navbar.css");
+@import url("bottom.css");
+@import url("upload.css");
+@import url("login.css");
+@import url("playlist.css");
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: black;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.mainconatiner{
+    display: flex;
+    height: 100vh;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+

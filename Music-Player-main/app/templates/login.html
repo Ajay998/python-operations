@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="form">
+    <input type="text" placeholder="username" required="">
+    <input type="password" id="password" placeholder="password" required="">
+    <div class="password-container">
+        <input type="password" id="confirmpass" placeholder="confirm password" required="">
+        <span class="password-toggle-icon"><i class="fas fa-eye"></i></span>
+    </div>
+    <input type="submit" value="Login">
+</form>
+{% endblock %}

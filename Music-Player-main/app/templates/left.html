@@ -1,0 +1,28 @@
+<div class="left">
+    <div class="home">
+        <a href=" "><button class="homebtn"><i class="fa-solid fa-house"></i><span> Home</span></button></a>
+        <button class="search"><i class="fa-solid fa-magnifying-glass"></i><span> Search</span></button>
+    </div>
+    <div class="playlist">
+        <div class="playlistheading">
+            <div class="leftheading">
+                <button class="collapse"><i class="fa-solid fa-square-minus"></i><span> Playlist</span></button>
+            </div>
+            <div class="rightheading">
+                <button class="addplaylist"><i class="fa-solid fa-plus"></i></button>
+                <button class="maximize"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="playlistcontainer">
+            <span>Create your first playlist</span>
+            <button class="createplaylist">Create Playlist</button>
+            <ul>
+                {% for playlist in user_playlists|slice:":4" %}
+                    <li class="playlists" data-slug="{{ playlist.slug }}">
+                        <img src="{{ playlist.photo }}"> {{ playlist.name }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

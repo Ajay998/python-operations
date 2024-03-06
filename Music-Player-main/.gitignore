@@ -1,0 +1,7 @@
+# Ignore the 'media' directory and its contents
+media/
+
+# Ignore the 'app/song_data.json' file
+app/song_data.json
+
+app/management

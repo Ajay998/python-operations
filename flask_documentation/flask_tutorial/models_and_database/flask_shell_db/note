@@ -1,0 +1,42 @@
+(bin) flock@flock:~/PycharmProjects/sample1/json_operations/flask_documentation/flask_tutorial/models_and_database$ flask shell
+Python 3.8.10 (default, May 26 2023, 14:05:08)
+[GCC 9.4.0] on linux
+App: app
+Instance: /home/flock/PycharmProjects/sample1/json_operations/flask_documentation/flask_tutorial/models_and_database/instance
+>>> db.create_all()
+>>> from app import Item
+>>> item1 = Item(name="Iphone 10",price=500,barcode="8545245641",description="desc")
+>>> db.session.add(item1)
+>>> db.session.commit()
+>>> Item.query.all()
+[<Item 1>]
+
+
+(bin) flock@flock:~/PycharmProjects/sample1/json_operations/flask_documentation/flask_tutorial/models_and_database$ flask shell
+Python 3.8.10 (default, May 26 2023, 14:05:08)
+[GCC 9.4.0] on linux
+App: app
+Instance: /home/flock/PycharmProjects/sample1/json_operations/flask_documentation/flask_tutorial/models_and_database/instance
+>>> from app import Item
+>>> Item.query.all()
+
+
+
+IndentationError: expected an indented block
+>>> for item in Item.query.all():
+...     item.name
+...     item.description
+...
+'Iphone 10'
+'desc'
+'Laptop'
+'desc2'
+>>>
+
+>>> for item in Item.query.filter_by(price=500):
+...     item.name
+...
+'Iphone 10'
+>>>
+
+

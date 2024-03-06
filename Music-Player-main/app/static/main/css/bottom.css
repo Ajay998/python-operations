@@ -1,0 +1,115 @@
+.bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 11%;
+    background-color: black;
+    overflow: hidden;
+    display: flex;
+  }
+
+.musiccontent {
+    display: flex;
+    margin:15px 12px 15px 12px;
+    width:25%;
+    font-weight: bolder;
+}
+
+.musiccontent img {
+    width: 54px;
+    height: 50px;
+}
+
+.musicdetails{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    padding-top: 3px;
+}
+
+.musicname{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.artist{
+    color: #c0b7b7;
+    font-size: 12px;
+    font-weight: 100;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.songplayer{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.player{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playercontroller{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playercontroller i{
+    font-size: 1.4rem;
+    padding: 10px 8px 10px 8px;
+    color: grey;
+}
+
+.playercontroller i:hover{
+    color: white;
+}
+
+i.fa-circle-play{
+    font-size: 2rem;
+    color: white;
+}
+
+i.fa-circle-play:hover{
+    transform: scale(1.1); 
+}
+
+i.fa-circle-pause{
+    font-size: 2rem;
+    color: white;
+}
+
+
+.songbar{
+    width:80%;
+    height: 5px;
+}
+
+.starttimespan{
+    padding-right: 5px;
+}
+
+.endtimespan{
+    padding-left: 5px;
+}
+
+.volumecontrols{
+    display: flex;
+    margin-right: 15px;
+    width:25%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.volumecontrols i{
+    margin-right: 7px;
+}
+
+.volumebar{
+    width: 25%;
+    height: 5px;
+}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="playlistpage">
+        <div class="playlistpageheader">
+            {% if playlist %}
+                <img src="{{ playlist.photo }}" alt="Playlist Cover">
+                <div class="playlistdetails">
+                    <span class="playlistname">{{ playlist.name }}</span>
+                    <span>Author: {{ playlist.user.username }}</span>
+                </div>
+            {% endif %}        
+        </div>
+        <div class="playlistitems">
+            <i class="fa-solid fa-circle-play playlist-play-button"></i>
+            <div class="playlistcontent">
+                <div class="playlistcontentheader">
+                    <span class="playlistid">#</span>
+                    <span class="playlistsongtitle">Title</span>
+                    <span class="playlistsongartist">Artist</span>
+                    <span class="playlistsongadded">Date added</span>
+                    <span class="playlistsongduration">Duration</span>
+                </div>
+                <hr>
+            {% for song in song_list %}
+                <div class="playlistcontentitem clickable" data-song-id="{{ song.id }}">
+                    <span class="playlistid">{{ forloop.counter }}</span>
+                    <span class="playlistsongtitle">
+                        <img src="{{ song.photo }}" alt="{{ song.name }} Cover">
+                        <span>{{ song.name }}</span>
+                    </span>
+                    <span class="playlistsongartist">{{ song.artist.name }}</span>
+                    <span class="playlistsongadded">{{ song.added_at }}</span>
+                    <span class="playlistsongduration">{{ song.duration }}</span>
+                </div>
+                {% empty %}
+                <div class="empty-message">
+                    <h2>Let's find something for your playlist</h2>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search for songs">
+                    <div id="suggestions"></div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,300 @@
+/* set size of root element */
+html{
+    font-size: 7px;    
+}
+
+/* set border-box style for all elements of webpage */
+*{
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* set margin of body element as 0 (because there is some margin by default) */
+body{
+  margin: 0;
+
+}
+
+.bg-container{
+  height: 100vh;
+  background-color: #0C1126;
+  overflow-y: auto;
+}
+
+
+/* queue */
+.queue-container{
+  width: 95%;
+  margin-bottom: 2rem;
+}
+
+#queue-2{
+  display: none;
+}
+
+.queue-header{
+  color: #CECFD3;
+  font-size: 1.1rem;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* queue elements */
+.queue-elements-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.queue-element{
+  margin-bottom: 0.6rem;
+  width: 100%;
+  background-color: #24273D;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.song-image-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.queue-number{
+  font-size: 0.8rem;
+  color: #8092A1;
+  margin-right: 1rem;
+}
+
+.image-container{
+  position: relative;
+}
+
+.queue-song-img{
+  width: 3rem;
+  border-radius: 0.4rem;
+  margin-right: 1rem;
+}
+
+.queue-song-img ~i{
+  transition: all 0.2s ease-in-out;
+}
+
+.queue-song-img ~i:hover{
+  opacity: 0.9;
+  height: 1rem;
+}
+
+.queue-song-img:hover ~ i{
+  opacity: 0.9;
+  height: 1rem;
+}
+.play-btn{
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+  color: white;
+  top: 1rem;
+  left: 1rem;
+}
+
+.queue-song-name{
+  font-size: 0.9rem;
+  color: #F6F7F9;
+}
+
+.queue-artist-name{
+  font-size: 0.9rem;
+  color: #8A909D;
+}
+
+.wishlist-icon{
+  color: #92A6B3;
+}
+
+
+
+/* on clicking the play buttons ,make the footer visible */
+#play-btn-checkbox1:checked ~ footer ,
+#play-btn-checkbox2:checked ~ footer ,
+#play-btn-checkbox3:checked ~ footer ,
+#play-btn-checkbox4:checked ~ footer{
+  display: block;
+}
+
+/* on clicking the play btns , make its height 0 (display none) */
+#play-btn-checkbox1:checked ~ .for-responsiveness > main > .latest-release-container div:nth-child(even) div:first-child > .song-name-and-img-container > .latest-release-img-container > label > i.play-1 ,
+
+#play-btn-checkbox2:checked ~ .for-responsiveness > main > .latest-release-container div:nth-child(even) div:last-child > .song-name-and-img-container > .latest-release-img-container > label > i.play-2 ,
+
+#play-btn-checkbox3:checked ~ .for-responsiveness > main > .latest-release-container div:last-child div:first-child > .song-name-and-img-container > .latest-release-img-container > label > i.play-3 ,
+
+#play-btn-checkbox4:checked ~ .for-responsiveness > main > .latest-release-container div:last-child div:last-child > .song-name-and-img-container > .latest-release-img-container > label > i.play-4
+ {
+  height: 0;
+  overflow: hidden;
+}
+
+/* on clicking the play btns, make the height of pause btn non zero */
+#play-btn-checkbox1:checked ~ .for-responsiveness > main > .latest-release-container div:nth-child(even) div:first-child > .song-name-and-img-container > .latest-release-img-container > label > i.pause-1 ,
+
+#play-btn-checkbox2:checked ~ .for-responsiveness > main > .latest-release-container div:nth-child(even) div:last-child > .song-name-and-img-container > .latest-release-img-container > label > i.pause-2 ,
+
+#play-btn-checkbox3:checked ~ .for-responsiveness > main > .latest-release-container div:last-child div:first-child > .song-name-and-img-container > .latest-release-img-container > label > i.pause-3 ,
+
+#play-btn-checkbox4:checked ~ .for-responsiveness > main > .latest-release-container div:last-child div:last-child > .song-name-and-img-container > .latest-release-img-container > label > i.pause-4
+{
+  height: 1rem;
+}
+
+/* on cliking the play btns, reduce the height of main content to make space for footer */
+#play-btn-checkbox1:checked ~ .for-responsiveness > main ,
+#play-btn-checkbox2:checked ~ .for-responsiveness > main ,
+#play-btn-checkbox3:checked ~ .for-responsiveness > main ,
+#play-btn-checkbox4:checked ~ .for-responsiveness > main
+{
+  height: 75vh;
+}
+
+/* on cliking the play btns, reduce the height of queue-container to make space for footer */
+#play-btn-checkbox1:checked ~ .for-responsiveness > #queue-2 ,
+#play-btn-checkbox2:checked ~ .for-responsiveness > #queue-2 ,
+#play-btn-checkbox3:checked ~ .for-responsiveness > #queue-2 ,
+#play-btn-checkbox4:checked ~ .for-responsiveness > #queue-2
+{
+  height: 75vh;
+}
+
+.song-name{
+  color: #FCFCFD;
+  font-size: 0.8rem;
+}
+
+.date{
+  color: #E2E3E5;
+  font-size: 0.7rem;
+}
+
+.more-details{
+  color: #93A9B2;
+  font-size: 0.8rem;
+}
+
+.time{
+  color: #8D8C93;
+  font-size: 0.6rem;
+}
+
+
+/* hide scrollbar */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+main::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+main {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#queue-2::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#queue-2 {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+/* media query for extra small devices */
+@media (min-width: 365px)
+{
+  html{
+    font-size: 9px;
+  }
+}
+
+/* media query for small devices */
+@media (min-width: 576px)
+{
+    html{
+        font-size: 11px;
+    }
+    
+}
+
+/* media query for medium devices */
+@media (min-width: 768px){
+    html{
+        font-size: 13px;
+    }
+
+    .current-song-container {
+      flex-direction: row;
+    }
+
+    .current-song-container img{
+      width: 25%;
+      margin-right: 1rem;
+      max-height: none;
+    }
+
+    .current-song-button-container{
+      display: flex;
+      flex-direction: row;
+    }
+
+    .current-song-more-options-container{
+      flex-direction: row;
+    }
+
+    .for-responsiveness{
+      padding-left: 3rem;
+      padding-right: 3rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    main{
+      width: 60%;
+    }
+
+
+    #queue-2{
+      display: block;
+      width: 35%;
+      height: 90vh;
+      overflow-y: auto;
+      margin-bottom: 0;
+    }
+}
+
+/* media query for large devices */
+@media (min-width: 992px){
+    html{
+        font-size: 15px;
+    } 
+}
+
+/* media query for extra-large devices */
+@media (min-width: 1200px){
+    html{
+        font-size: 17px;
+    }
+}
+
+
+

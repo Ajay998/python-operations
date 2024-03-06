@@ -1,0 +1,93 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    width: 99%;
+    height: 6vh;
+    margin: 3px;
+    position: sticky;
+    padding: 5px;
+}
+
+.backnext{
+    float: left;
+    padding-left: 8px;
+}
+
+.backnext i{
+    padding-left: 8px;
+}
+
+.navend{
+    margin-left: auto;
+    padding-right: 8px;
+}
+
+.backnext i {
+    font-size: 1.8rem;
+    padding-left: 8px;
+
+}
+
+.navend i{
+    font-size: 1.2rem;
+    padding: 8px;
+
+}
+
+.navend button.signlogin{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding-right:8px ;
+    background-color:#00000086;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 2px 5px 2px 5px;
+
+}
+
+.navend button.uploadBtn{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding-right:8px ;
+    font-weight: bolder;
+    background-color: #00000086;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0 13px 2px 8px;
+    border-radius: 23px;
+    margin-right: 5px;
+}
+
+.navend button.signlogin:hover,.navend button.uploadBtn:hover {
+    transform: scale(1.1); 
+    background-color: black;
+}
+
+.signloginmenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #3c3a3a;
+    padding: 10px;
+    z-index: 1;
+    margin-right: 12px;
+}
+
+.signloginmenu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.signloginmenu li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.signloginmenu li:hover {
+    background-color: #000000;
+}

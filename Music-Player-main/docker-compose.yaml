@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+
+  app:
+    image: sha256:64edaa51cd0269efbf081766153e585291c1b6bf4894ce5f2dbac3952457544c
+    command: sleep infinity
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    init: true

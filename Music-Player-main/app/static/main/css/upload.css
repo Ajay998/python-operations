@@ -1,0 +1,41 @@
+.uploadform {
+    width: 100%;
+}
+
+.uploadform{
+    margin:22px;
+}
+
+.upload input {
+    padding: 0 12px 0 12px;
+
+}
+
+input#description{
+    width:95%;
+    height:12vh;
+    background-color: transparent;
+    border: solid white 1px;
+    color: white;
+    outline: none;
+}
+
+input#musicname,input#artist{
+    width:95%;
+    height:5vh;
+    background-color: transparent;
+    border: solid white 1px;
+    color: white;
+    outline: none;
+}
+
+input#submit{
+    border: none;
+    outline: none;
+    background-color: rgb(11, 55, 11);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    height: 40px;
+    width: 80px;
+    border-radius: 25px;
+}

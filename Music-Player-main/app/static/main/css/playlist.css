@@ -1,0 +1,166 @@
+/* General styles for the playlist page */
+.playlistpage {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Header styles */
+.playlistpageheader {
+    min-height: 20%;
+    padding: 30px 20px 15px 5px;
+    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.5))), rgba(54, 74, 98);
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+}
+
+.playlistpageheader img {
+    height: 150px;
+    width: 150px;
+    padding-left: 10px;
+}
+
+.playlistpageheader span {
+    padding-left: 10px;
+}
+
+/* Playlist details styles */
+.playlistdetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.playlistname {
+    font-size: 4rem;
+}
+
+/* Playlist items styles */
+.playlistitems {
+    min-height: 80%;
+    background-color: #121212;
+}
+
+.playlistitems i {
+    font-size: 2.5rem;
+    padding: 20px 0 0 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.playlistitems i:hover {
+    transform: scale(1.1);
+}
+
+/* Playlist content styles */
+.playlistcontent {
+    display: flex;
+    flex-direction: column;
+    color: #c0b7b7;
+    margin-bottom: 10px;
+}
+
+/* Playlist content header styles */
+.playlistcontentheader {
+    display: flex;
+    padding: 25px;
+    padding-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Playlist content item styles */
+.playlistid,
+.playlistsongtitle,
+.playlistsongartist,
+.playlistsongadded,
+.playlistsongduration {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.playlistsongadded{
+    text-align: center;
+}
+
+.playlistid {
+    flex: 0 0 auto; /* Don't grow or shrink, stay at content width */
+}
+
+.playlistsongtitle {
+    max-width: 30%; /* Limit to 30% of the parent width */
+    display: flex;
+    align-items: center;
+}
+
+.playlistsongartist {
+    max-width: 30%; /* Limit to 30% of the parent width */
+}
+
+
+.playlistsongtitle img {
+    width: 60px;
+    height: 60px;
+    padding-right: 10px;
+}
+
+.playlistsongartist,
+.playlistsongadded,
+.playlistsongduration {
+    max-width: 23%;
+}
+
+.playlistsongduration {
+    margin-left: auto;
+    text-align: right;
+}
+
+/* Playlist content item hover styles */
+.playlistcontentitem {
+    display: flex;
+    padding: 25px;
+    padding-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.playlistcontentitem:hover {
+    background-color: #1f1f1f;
+}
+
+.empty-message {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.search-box {
+    margin-top: 20px;
+    position: relative;
+    width: 30%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#search-input {
+    padding: 10px;
+    border: none;
+    background-color: hsla(0,0%,100%,.1);
+    color: white;
+    border-radius: 5px;
+    width: 80%;
+}
+
+#search-input::placeholder {
+    color: white;
+    font-weight: bold;
+}
+
+#search-input:focus {
+    outline: none;
+}
+

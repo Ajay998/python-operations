@@ -103,7 +103,7 @@
             <div class="list">
                     <span>{{ song.name }}</span>
                     <span>{{ song.artist }}</span>
-                    <a href="{{ url_for('play', track_uri=song.uri,  page=song.name)}}">Listen on Spotify</a>
+                    <a href="{{ url_for('play', track_uri=song.uri,  page=song.name, image=song.image_src)}}">Listen on Spotify</a>
             </div>
             {% endfor %}
         </div>

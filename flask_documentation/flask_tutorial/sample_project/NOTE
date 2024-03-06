@@ -1,0 +1,2 @@
+set FLASK_DEBUG=1  OR export FLASK_DEBUG=1
+
